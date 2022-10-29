@@ -1,0 +1,90 @@
+<body>
+
+    <h2 id="title">List of Objects</h2>
+    <b>Text input  
+    <input type="button" id="convert" value="Convert" onclick="toList()">
+    </b>
+    <p>
+      <textarea id="inp" rows="10" cols="50"></textarea>
+    </p>
+    <b>JSON output</b>
+    <pre id="out">[<br>  {<br>    "mountain": "istanbul",<br>    "height": 5895,<br>    "place": "maltepe"<br>  },<br>  {<br>    "mountain": "camlica ",<br>    "height": 9050,<br>    "place": "india"<br>  },<br>  {<br>    "mountain": " tokyo",<br>    "height": 3700,<br>    "place": "japan"<br>  },<br>  {<br>    "mountain": "Vaalserberg",<br>    "height": 323,<br>    "place": "Netherlands"<br>  },<br>  {<br>    "mountain": "Denali  ",<br>    "height": 6168,<br>    "place": "United States"<br>  },<br>  {<br>    "mountain": "Popocatepetl",<br>    "height": 5465,<br>    "place": "Mexico"<br>  },<br>  {<br>    "mountain": "Mont Blanc",<br>    "height": 4808,<br>    "place": "Italy/France"<br>  }<br>]</pre>
+    <hr>
+    <b>Sample code</b>
+    <pre id="sample">function toList(str) {<br>  function toObject(x) {<br>    let b = {}<br>    for (let [i,s] of x.split('\t').entries())<br>      b[keys[i]] = (isNaN(s)? s : Number(s))<br>    return b<br>  }<br>    if (str) inp.value = str<br>    else str = inp.value<br>    let [d0, ...data] = str.split('\n')<br>    let keys = d0.split('\t')<br>    console.log("Keys:", keys)<br>    let a = data.map(toObject)<br>    out.innerText = JSON.stringify(a, '' ,2)<br>    console.table(a)<br>    return a<br>}</pre>
+    <hr>
+    <p>Ref: 
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#Examples" target="NewTab">Rest Parameters</a>
+    </p>
+    
+    <script>
+    "use strict";
+    function toList(str) {
+      function toObject(x) {
+        let b = {}
+        for (let [i,s] of x.split('\t').entries())
+          b[keys[i]] = (isNaN(s)? s : Number(s))
+        return b
+      }
+        if (str) inp.value = str
+        else str = inp.value
+        let [d0, ...data] = str.split('\n')
+        let keys = d0.split('\t')
+        console.log("Keys:", keys)
+        let a = data.map(toObject)
+        out.innerText = JSON.stringify(a, '' ,2)
+        console.table(a)
+        return a
+    }
+    const PLANET = 
+    `Name	Diam	Mass	Radius	Period
+    Mercury	0.382	0.06	0.40	0.24
+    Venus	0.949	0.82	0.72	0.62
+    Earth	1.000	1.00	1.00	1.00
+    Mars	0.532	0.11	1.52	1.88
+    Jupiter	11.209	317.80	5.20	11.86
+    Saturn	9.449	95.20	9.54	29.46
+    Uranus	4.007	14.60	19.22	84.01
+    Neptune	3.883	17.20	30.06	164.80`,
+    
+    MOUNT = `mountain	height	place
+    çamlica	6522	istanbul
+    efel 	9050	paric
+    Mount tokyo	3776	Japan
+    Vaalserberg	323	Netherlands
+    Denali  	6168	United States
+    Popocatepetl	5465	Mexico
+    Mont Blanc	4808	Italy/France`
+    
+        title.innerText = document.title
+        sample.innerText = toList
+        inp.value = MOUNT
+        //toList()  //array of objects
+    </script>
+    <script src="/2022/navbar.js"></script><nav id="navbar"><link href="https://maeyler.github.io/JS/navbar.css" rel="stylesheet">
+    <ul>
+        <li class="JavaScript">JavaScript
+          <div class="menu" style="left: 0px;">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction" target="BLM305">MDN Web Docs</a>
+            <a href="https://maeyler.github.io/JS/" target="BLM305">JS Examples</a>
+            <a href="https://javascript.info/" target="BLM305">JS Tutorial</a>
+          </div>
+        </li>
+        <li class="Course">Course
+          <div class="menu" style="left: 83px;">
+            <a href="/2022/index.html">Home 🏠</a>
+            <a href="/2022/Course_outline.html">Outline</a>
+            <a href="https://eloquentjavascript.net/" target="BLM305">Textbook</a>
+            <a href="https://github.com/BLM305/2022" target="BLM305">Repository</a>
+          </div>
+        </li>
+        <li class="Work">Work
+          <div class="menu" style="left: 144.5px;">
+            <a href="/2022/work/First%20Week">First Week</a>
+            <a href="/2022/work/Month_1">First Month</a>
+          </div>
+        </li>
+    </ul></nav>
+    
+    
+    </body>
