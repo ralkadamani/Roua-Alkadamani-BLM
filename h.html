@@ -1,0 +1,110 @@
+<html>
+
+<head>
+
+    <title>Fetch & Animations </title>
+    <style>
+        body {
+            background-color: tomato;
+            max-width: 1080px;
+            margin: 0 auto !important;
+            float: none !important;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+        div{
+            width: 280px;
+            height: 300px;
+            background-color: white;
+        }
+    </style>
+
+</head>
+
+<script>
+
+    var isRunning = false 
+    function Start(){
+       isRunning= true
+
+        const el = document.getElementById(monky) 
+
+        while (isRunning){
+            
+            for (let index = 1; index <= 10; index++) {
+                var url = "adv/" + index + ".png"
+                el.src = url;
+            }  
+            
+        }
+    }
+
+    function Stop(){
+       isRunning= false
+
+    }
+    function Pause(){
+
+
+    }
+    function Next(){
+
+    }
+    function Prev(){
+
+
+    }
+
+    function getfetch() {
+
+        var urls = []
+
+        for (let index = 1; index <= 10; index++) {
+            // TODO: .github.io/adv-photos/
+            var url = "adv/" + index + ".png"
+
+            fetch(url)
+                .then(res => res.blob())
+                .then(blob => {
+                    let ObjectURL = URL.createObjectURL(blob);
+                    console.log(ObjectURL);
+                    let newImg = document.createElement("img");
+                    
+                    newImg.src = ObjectURL;
+    
+                    newImg.id = 'imgs{index}'
+
+                    document.body.appendChild(newImg);
+                });   
+        }
+
+    }
+   
+    
+
+</script>
+
+<body>
+
+    <button onclick='Start()'>Start</button>
+    <button onclick='Stop()'>Stop</button>
+    <button onclick='Pause()'>Pause</button>
+    <button onclick='Next()'>Next</button>
+    <button onclick='Prev()'>Prev</button>
+
+    <br>
+    <br>
+
+    <div>
+        <img src="adv/1.png" id="monky">
+    </div>
+
+</body>
+</html>
+
