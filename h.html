@@ -30,6 +30,8 @@
 <script>
 
     var isRunning = false 
+    var index =1 ;
+
     function Start(){
        isRunning= true
 
@@ -37,9 +39,16 @@
 
         while (isRunning){
             
-            for (let index = 1; index <= 10; index++) {
-                var url = "adv/" + index + ".png"
-                el.src = url;
+            for (let i = 1; i <= 10; i++) {
+                index=i;
+
+                var url = "adv/" + i + ".png"
+               
+
+                fetch('https://github.com/ralkadamani/Roua-Alkadamani-BLM-/blob/9cc6035b5ac78b35426b7b6b75d365b030ef5cff/'+ url)
+		            .then(response => response.json()) //Converting the response to a JSON object
+		            .then( data => document.body.append())
+		            .catch( error => console.error(error));
             }  
             
         }
@@ -68,6 +77,8 @@
         for (let index = 1; index <= 10; index++) {
             // TODO: .github.io/adv-photos/
             var url = "adv/" + index + ".png"
+
+           
 
             fetch(url)
                 .then(res => res.blob())
@@ -102,7 +113,7 @@
     <br>
 
     <div>
-        <img src="adv/1.png" id="monky">
+        <img src="https://github.com/ralkadamani/Roua-Alkadamani-BLM-/blob/9cc6035b5ac78b35426b7b6b75d365b030ef5cff/adv/1.png" id="monky">
     </div>
 
 </body>
