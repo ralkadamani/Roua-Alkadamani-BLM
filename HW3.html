@@ -1,0 +1,77 @@
+<html><head>
+
+    <title>Fetch &amp; Animations </title>
+    <style>
+        body {
+            background-color: tomato;
+            max-width: 1080px;
+            margin: 0 auto !important;
+            float: none !important;
+        }
+
+        button {
+            width: 50px;
+            height: 50px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+        div{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <button onclick="Start()">Start</button>
+    <button onclick="Stop()">Stop</button>
+    <button onclick="Pause()">Pause</button>
+    <button onclick="Next()">Next</button>
+    <button onclick="Prev()">Prev</button>
+
+    <br>
+    <br>
+
+    <div > 
+        
+    </div>
+
+<script>
+
+    function Start() {
+
+        var urls = []
+
+
+        for (let index = 1; index <= 10; index++) {
+
+            // TODO: .github.io/adv-photos/
+            var url = "adv/" + index + ".png"
+
+
+            fetch(url)
+                .then(res => res.blob())
+                .then(blob => {
+                    let ObjectURL = URL.createObjectURL(blob);
+
+                    let newImg = document.createElement("img");
+                    newImg.src = ObjectURL;
+
+                    document.body.appendChild(newImg);
+                });
+        }
+
+
+
+    }
+
+
+    Start();
+
+</script>
+
+
+</body></html>

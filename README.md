@@ -5,7 +5,7 @@
     <link rel="manifest" href="manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <style>
+<style>
 
         html {
             margin-left: 10%;
@@ -24,7 +24,7 @@
         div {margin-top:30px; margin-left: 35%;  } 
         h1, h2, h3, h6 { color: #533747ff; margin-top:50px; }
         
-    </style>
+</style>
     
 </head>
 <body class="vsc-initialized" data-new-gr-c-s-check-loaded="14.1085.0" data-gr-ext-installed="">
@@ -35,12 +35,12 @@
 
 <h2>Class Work</h2>    
 
-<div  >
+<div>
     <table border="5px" cellpadding="10px"  width="50%" >
         
-        <tbody>
+<tbody>
 
-        <div>
+<div>
             <tr>
                 <th>
                     Class Work
@@ -52,9 +52,9 @@
                      Link
                 </th>
             </tr>
-        </div>
-        
-        <tr>
+</div>
+<div>
+    <tr>
             <td >
                 CW-0
             </td>
@@ -64,9 +64,10 @@
             <td>
                 <a href="https://github.com/ralkadamani/Roua-Alkadamani-BLM-/blob/c1284bdecaad036b1c64540f188e9b5d405b6d5c/Browser%20tools.pdf">Link</a>
             </td>
-        </tr>
+   </tr>
+</div>
         
-        <tr>
+   <tr>
             <td>
                 CW-1
             </td>
@@ -76,9 +77,9 @@
             <td>
                 <a href="https://github.com/ralkadamani/Roua-Alkadamani-BLM-/blob/8cb21127b389d752d7f6c523a479ed4301dc9df5/iban.html">Link</a>
             </td>
-        </tr>
+    </tr>
         
-        <tr>
+   <tr>
             <td>
                 CW-2
             </td>
@@ -88,9 +89,9 @@
             <td>
                 <a href="https://github.com/ralkadamani/Roua-Alkadamani-BLM-/blob/cdf7cdbc3f235f910e376c64365b6001e78fe49a/TextToObjects.html">Link</a>
             </td>
-        </tr>
+    </tr>
 
-        <tr>
+   <tr>
             <td>
                 CW-3
             </td>
@@ -100,9 +101,9 @@
             <td>
                 <a href="https://github.com/ralkadamani/Roua-Alkadamani-BLM-/blob/c1284bdecaad036b1c64540f188e9b5d405b6d5c/object%20inspector.pdf">Link</a>
             </td>
-        </tr>
+    </tr>
        
-    </tbody>
+   </tbody>
 </table>
 
 </div>
@@ -112,9 +113,9 @@
 <div >
     <table border="5px" cellpadding="10px"  width="50%">
         
-        <tbody>
+   <tbody>
 
-        <div>
+   <div>
             <tr>
                 <th>
                     HomeWork
@@ -126,9 +127,9 @@
                      Link
                 </th>
             </tr>
-        </div>
+    </div>
         
-        <tr>
+   <tr>
             <td >
                 HW-1
             </td>
@@ -138,9 +139,9 @@
             <td>
                 <a href="https://github.com/ralkadamani/Roua-Alkadamani-BLM-/blob/4ab9b568b6e25fb14d2a4725aa8d7dba4ea5c589/Array%20Methods.pdf">Link</a>
             </td>
-        </tr>
+   </tr>
         
-        <tr>
+   <tr>
             <td>
                 HW-2
             </td>
@@ -150,9 +151,9 @@
             <td>
                 <a href="https://github.com/ralkadamani/Roua-Alkadamani-BLM-/blob/58eafe63ef56a341cb5c80ba58a2da7295f8127c/OrganizeYourPrivateRepo.html">Link</a>
             </td>
-        </tr>
+    </tr>
        
-    </tbody>
+   </tbody>
 </table>
 
 </div>
@@ -163,25 +164,24 @@
     <table border="5px" cellpadding="10px"  width="50%">
     <tbody>
 
-        <div>
-            <tr>
+   <div>
+        <tr>
                 <th>
                     Term Project
                 </th>
-            
                 <th>
-                     Link
+                    Link
                 </th>
-            </tr>
-        </div>
+        </tr>
+   </div>
         
-    </tbody>
-    </table>
+</tbody>
+</table>
 </div> 
 
-    <script>
+<script>
     navigator.serviceWorker.register('sw.js')
-    </script>
+</script>
 
 
 <h6>Roua Alkadamani 2022</h6>
