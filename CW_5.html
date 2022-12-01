@@ -1,0 +1,196 @@
+<html lang="en-US"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/JS/images/JS.png">
+    <title>Battery Status </title>
+    
+  <style>
+    body { max-width: 440px; }
+    #progress { width: 200px; }
+  </style>
+</head>
+
+<body data-new-gr-c-s-check-loaded="14.1086.0" data-gr-ext-installed="" class="vsc-initialized">
+<h2 id="title">Battery Status</h2>
+<div id="charging">Discharging...</div>
+<div>
+   <progress id="progress" value="72" max="100"></progress> 
+   <span id="levelTxt">72%</span>
+</div>
+<div id="message">1:35 remaining</div>
+<p>Ref: <a href="https://developer.tizen.org/dev-guide/2.4.0/org.tizen.tutorials/html/web/w3c/device/battery_tutorial_w.htm" target="NewTab">Battery Tutorial</a>&emsp;
+   <a href="https://groups.google.com/u/1/g/mozilla.dev.platform/c/5U8NHoUY-1k/discussion" target="NewTab">Removal</a>
+</p>
+
+<h2>Screen Size</h2>
+<p id="scrSize">Screen: 1536x864&ensp; x1.25</p>
+<p id="winSize">Window: 280x712</p>
+
+<h2>Online Status</h2>
+<p id="out"></p>
+<p id="online" style="color: blue;">connected -- online</p>
+
+<script>
+  "use strict";
+  function getBatteryState(evt) {
+      // console.log(evt.type)
+      let battery = evt.target;
+      let state = "", msg = "";
+      let level = Math.round(battery.level * 100);
+      if (battery.charging) { 
+         state = level==100? "Fully charged" : "Charging...";
+         if (battery.chargingTime < Infinity) {
+           let tf = getTimeFormat(battery.chargingTime);
+           msg = tf.hour + ":" + tf.minute + " to full charge";
+         }
+      } else { //if (!battery.charging) {  
+        state = level>15? "Discharging..." : "Connect the charger"
+        if (battery.dischargingTime < Infinity) {
+          let tf = getTimeFormat(battery.dischargingTime);
+          msg = tf.hour + ":" + tf.minute + " remaining";
+         }
+      }
+      console.log(level, battery.charging, msg)
+      charging.innerText = state;
+      progress.value = level;
+      levelTxt.innerText = level + "%";
+      message.innerText = msg;
+  }
+
+  /* Time is received in seconds, converted to hours and minutes */
+  function getTimeFormat(time) {
+      /* time parameter is second */
+      let m = time / 60;
+      let hour = parseInt(m / 60);
+      let minute = parseInt(m % 60);
+      minute = minute < 10 ? "0" + minute : minute;
+      return {hour, minute};
+  }
+
+  function init(b) {
+      getBatteryState({type:'init', target:b})
+      b.onlevelchange = getBatteryState
+      b.onchargingchange = getBatteryState
+    //b.onchargingtimechange = getBatteryState
+    //b.ondischargingtimechange = getBatteryState
+  }
+  function showOnline(b) {
+    let msg
+    if (b) {
+        msg = 'connected -- online'
+        online.style.color = 'blue'
+    } else {
+        msg = 'disconnected -- offline'
+        online.style.color = 'red'
+    }
+    online.innerText = msg; console.log(msg)
+  }
+  function doResize() {
+    let ss = `Screen: ${screen.width}x${screen.height}`
+          +'&ensp; x'+devicePixelRatio.toFixed(2)
+    scrSize.innerHTML = ss
+    let ws = `Window: ${innerWidth}x${innerHeight}`
+    winSize.innerText = ws
+    console.log(ss, ws)
+  }
+  title.innerText = document.title;
+  onoffline = () => showOnline(false)
+  ononline  = () => showOnline(true)
+  showOnline(navigator.onLine)
+  if (navigator.getBattery)
+      navigator.getBattery().then(init)
+  else throw "getBattery not found"
+  window.onresize = doResize
+  doResize()
+
+</script>
+<script src="/JS/navbar.js"></script><nav><link href="/JS/navbar.css" rel="stylesheet">
+<style>
+    nav a {background: wheat}
+</style> 
+<ul>
+    <li class="Simple">Simple
+      <div class="nav_menu">
+        <a href="/JS/simple/Date%20test.html">Date and Color</a>
+        <a href="/JS/simple/char_count.html">Char Count</a>
+        <a href="/JS/simple/Color%20Paragraphs.html">Color Paragraphs</a>
+        <a href="/JS/simple/Compare%20Colors.html">Compare Colors</a>
+        <a href="/JS/simple/HTML%20items.html">HTML Items</a>
+        <a href="/JS/simple/Calculator.html">Calculator</a>
+        <a href="/JS/simple/Counter.html">Click Count</a>
+        <!--a href="/JS/simple/Clock.html">Clock</a-->
+        <a href="/JS/simple/Timer.html">Simple Timer</a>
+        <a href="/JS/simple/JS_Animation.html">JS Animation</a>
+        <a href="/JS/simple/CSS_Transition.html">CSS Transition</a>
+        <a href="/JS/simple/ArrayAndSet.html">Array &amp; Set Demo</a>
+        <a href="/JS/simple/carousel.html">Image Carousel</a>
+        <a href="/JS/simple/JSON_Teacher.html">JSON Teacher</a>
+      </div>
+    </li>
+    <li class="Math">Math
+      <div class="nav_menu">
+        <a href="/JS/math/Counting.html">Counting</a>
+        <a href="/JS/math/Math%20functions.html">Math Functions</a>
+        <a href="/JS/math/Numbers.html">Numbers</a>
+        <a href="/JS/math/Base%20Conversion.html">Base Conversion</a>
+        <a href="/JS/math/Primes.html">Primes</a>
+        <a href="/JS/math/TCKimlik.html">TC Kimlik</a>
+        <a href="/JS/math/Folding.html">Pythagorean Triples</a>
+        <a href="/JS/canvas/Graphics.html">Graphics</a>
+        <a href="/JS/canvas/Pie%20Chart.html">Pie Chart</a>
+        <a href="/JS/canvas/webcam.html">Camera</a>
+        <a href="/JS/canvas/colliding.html">Colliding balls</a>
+        <a href="/JS/canvas/sunflower.html">Sunflower</a>
+        <a href="/JS/canvas/solar_system.html">Solar System</a>
+      </div>
+    </li>
+    <li class="Hard">Hard
+      <div class="nav_menu">
+        <a href="/JS/hard/JS%20page.html">Page made by JS</a>
+        <a href="/JS/hard/Table%20maker.html">Table Maker</a>
+        <a href="/JS/hard/Select%20file.html">Select Local</a>
+        <a href="/JS/api/directory.html">Select directory</a>
+        <a href="/JS/hard/Fetch%20remote.html">Fetch Remote</a>
+        <a href="/JS/data/Students.html">Student Database</a>
+        <a href="/JS/hard/ObjectList.html">List of Objects</a>
+        <a href="/JS/linear/Equation.html">Linear Equations</a>
+        <a href="/JS/auto/Auto.html">Automata</a>
+        <a href="/JS/auto/Expression.html">Expression tree</a>
+        <a href="/JS/hard/JSON_Hilite.html">JSON Highlight</a>
+        <a href="/JS/hard/Philosophers.html">Dining Philosophers</a>
+        <a href="/JS/sss/inspector.html">Inspector</a>
+      </div>
+    </li>
+    <li class="Events">Events
+      <div class="nav_menu">
+        <a href="/JS/hard/Events.html">Event Handlers</a>
+        <a href="/JS/hard/Battery.html">Battery &amp; Internet</a>
+        <a href="/JS/hard/Propagation.html">Event Propagation</a>
+        <a href="/JS/hard/Dragging.html">Draggable Elements</a>
+        <a href="/JS/hard/URL_parts.html">URL Parts</a>
+        <a href="/JS/util/Menu_items.html">Menu</a>
+        <a href="/JS/util/Modal_dialog.html">Modal dialog</a>
+        <a href="/JS/util/Details.html">Details-Summary</a>
+        <a href="/JS/util/name-tag.html">Web Components</a>
+        <a href="/JS/hard/DOM%20tree.html">DOM tree</a>
+      </div>
+    </li>
+    <li class="External">External
+      <div class="nav_menu">
+        <a href="/JS/api/qrcode.html">QR Code</a>
+        <a href="/JS/api/GitHub_Users.html">GitHub Users</a>
+        <a href="/JS/api/Location.html">Location</a>
+        <a href="/JS/api/Weather.html">OpenWeather</a>
+        <a href="/JS/canvas/googlemaps.html">Maps 1</a>
+        <a href="/JS/canvas/mapboxgl.html">Maps 2</a>
+        <a href="/JS/canvas/ibb_map.html">Maps 3</a>
+        <a href="/JS/api/YouTube.html">YouTube play list</a>
+        <a href="/JS/api/YT_teacher.html">YouTube teacher</a>
+        <a href="/JS/api/Drive_API.html">Google Drive</a>
+        <a href="/JS/api/Drive_teacher.html">Drive teacher</a>
+      </div>
+    </li>
+</ul></nav>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
