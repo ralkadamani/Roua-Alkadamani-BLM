@@ -33,6 +33,7 @@
       #err { color:red }
       #kod { margin-left: 8px; }
       canvas { 
+        background: #9cf;
     width: 500px;
     height: 300px;
 }
@@ -81,7 +82,11 @@
   <script>
    var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
+
+    ctx.fillText("Maltepe , TR" , 10 ,25 );
+    ctx.fillText("clear 17" , 20 ,50 );
     ctx.font = "10px Arial";
+
     ctx.getElementById(yer);
     ctx.getElementById(icon);
     ctx.getElementById(hava);
