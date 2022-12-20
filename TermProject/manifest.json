@@ -1,21 +1,16 @@
 {
-    "name": "Studylove PWA",
-    "short_name": "Studylove",
-    "description": "This is a PWA tutorial created by Steph Crown",
-    "start_url": ".",
-    "background_color": "#B3D1FF",
-    "theme_color": "#0A0F75",
+    "name": "To Do List",
+    "short_name": "ToDoList",
+    "start_url": "termProject/Todolist.html",
     "display": "standalone",
+    "background_color": "#F4F4F4",
+    "theme_color": "#F4F4F4", 
+    "orientation": "any",
     "icons": [
         {
-            "src": "assets/logo192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "assets/logo512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
+            "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Circle-icons-computer.svg/768px-Circle-icons-computer.svg.png?20160314153535",
+            "type": "image/png",
+            "sizes": "768x768"
+          }
     ]
-}
+  }
