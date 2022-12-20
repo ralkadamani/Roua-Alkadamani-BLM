@@ -293,7 +293,7 @@
     </script>
 
     
-<script>
+  <script>
     //container2
     document.querySelector('#push2').onclick = function () {
       if (document.querySelector("#completed input").value.length == 0) {
@@ -320,7 +320,7 @@
     };
   </script>
 
-    <script>
+  <script>
         //work while offline
         
         // Checks if we can use serviceWorker.
@@ -340,7 +340,9 @@
                     console.error(err);
                 });
         }
+  </script>
 
+  <script>
         // Listens to an install event
         self.addEventListener("install", (event) => {
             event.waitUntil(
@@ -372,6 +374,6 @@
         });
 
 
-    </script>
+  </script>
   </html>
 </html>
