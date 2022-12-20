@@ -7,7 +7,7 @@
       <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
       <meta name="theme-color" content="#FFE1C4">
       <script src="/assets/js/app.js"></script>
-      
+
       <!-- ios support -->
       <link rel="apple-touch-icon" href="images/icons/icon-72x72.png" />
       <link rel="apple-touch-icon" href="images/icons/icon-96x96.png" />
@@ -20,6 +20,8 @@
       <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
       <meta name="theme-color" content="#db4938" />
      
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>To do List</title>
       <style>
         body {
@@ -393,14 +395,11 @@
   </script>
 
   <script>
-    if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker
-      .register("/serviceWorker.js")
-      .then(res => console.log("service worker registered"))
-      .catch(err => console.log("service worker not registered", err))
-  })
-}
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('TermProject/serviceWorker.js')
+        .then(reg => console.log('service worker registered'))
+        .catch(err => console.log('service worker not registered', err));
+    }
   </script>
   </html>
 </html>
