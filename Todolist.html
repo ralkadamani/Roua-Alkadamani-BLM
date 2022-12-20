@@ -1,0 +1,374 @@
+<html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="project" content="width=device-width, initial-scale=1.0" />
+      <title>To do List</title>
+      <style>
+        body {
+          max-width: 440px;
+        }
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 12px 16px 12px 16px;
+            }
+
+        .close:hover {
+            background-color: #f44336;
+            color: white;
+            }
+        h1 {
+          width: auto;
+          height: 40px;
+          text-align: center;
+          background-color: rgb(50, 176, 218);
+          border-radius: 5px;
+        }
+        *,
+        *:before,
+        *:after {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+        }
+       
+        .container {
+          width: 50%;
+          margin-left: 50%;
+          margin-top: 50%;
+          background-color: rgb(216, 224, 225);
+          border-radius: 10px;
+          min-width: 300px;
+          transform: translate(-50%, -50%);
+        }
+        
+        #NotStarted {
+          position: relative;
+          padding: 10px 10px;
+          display: grid;
+          border-radius: 5px;
+          text-align: center;
+          justify-content: center;
+        }
+        #NotStarted input {
+          width: 100%;
+          height: 10px;
+          padding: 30px;
+          color: #111111;
+          font-weight: 500;
+          position: relative;
+          border-radius: 5px;
+          font-family: "Poppins", sans-serif;
+          font-size: 20px;
+          border: 2px solid #d1d3d4;
+        }
+
+        #NotStarted input:focus {
+          outline: none;
+          border-color: #ec0d0d;
+        }
+        #NotStarted button {
+          box-sizing: border-box;
+          border-radius: 5px;
+          background: rgb(158, 187, 209);
+          cursor: pointer;
+          padding: 5px 10px;
+          border: 0;
+          font-weight: 500;
+          font-size: 15px;
+          color: #000000;
+        }
+
+        #tasks {
+          border-radius: 10px;
+          width: 100%;
+          position: relative;
+          background-color: rgb(216, 224, 225);
+          padding: 5px 10px;
+
+        }
+
+        .task  {
+          border-radius: 5px;
+          align-items: center;
+          justify-content: space-between;
+          border: 1px solid #939697;
+          cursor: pointer;
+          background-color: rgb(255, 255, 255);
+          height: 30px;
+          padding: 5px 10px;
+          display: flex;
+
+        }
+        .task span {
+          font-family: "Poppins", sans-serif;
+          font-size: 20px;
+          font-weight: 200;
+        }
+        .task button {
+          background-color: #a40a0a;
+          color: #ffffff;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          height: 100%;
+          width: 40px;
+          border-radius: 5px;
+        }
+
+        .container2 {
+          width: 50%;
+          margin-left: 50%;
+          margin-top: 40%;
+          background-color: rgb(216, 224, 225);
+          border-radius: 10px;
+          min-width: 300px;
+          transform: translate(-50%, -50%);
+
+        }
+
+        #completed {
+          position: relative;
+          padding: 10px 10px;
+          display: grid;
+          border-radius: 5px;
+          text-align: center;
+          justify-content: center;
+        }
+        
+        #completed input {
+          width: 100%;
+          height: 20px;
+          padding: 30px;
+          color: #111111;
+          font-weight: 500;
+          position: relative;
+          border-radius: 5px;
+          font-family: "Poppins", sans-serif;
+          font-size: 20px;
+          border: 2px solid #d1d3d4;
+        }
+
+        #completed input:focus {
+          outline: none;
+          border-color: #ec0d0d;
+        }
+        
+        #completed button {
+          box-sizing: border-box;
+          border-radius: 5px;
+          background: rgb(158, 187, 209);
+          cursor: pointer;
+          padding: 5px 10px;
+          border: 0;
+          font-weight: 500;
+          font-size: 15px;
+          color: #000000;
+        }
+
+        #tasks2 {
+          border-radius: 10px;
+          width: 100%;
+          position: relative;
+          background-color: rgb(216, 224, 225);
+          padding: 5px 10px;
+
+        }
+
+        .task2  {
+          border-radius: 5px;
+          align-items: center;
+          justify-content: space-between;
+          border: 1px solid #939697;
+          cursor: pointer;
+          background-color: rgb(255, 255, 255);
+          height: 30px;
+          padding: 5px 10px;
+          display: flex;
+
+        }
+        .task2 span {
+          font-family: "Poppins", sans-serif;
+          font-size: 20px;
+          font-weight: 200;
+        }
+        .task2 button {
+          background-color: #a40a0a;
+          color: #ffffff;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          height: 100%;
+          width: 40px;
+          border-radius: 5px;
+        }
+
+
+      </style>
+    </head>
+
+    <body>
+
+      <p style="font-size: 50px; margin-block-start:5px; text-align: center; background-color: white ">
+        To Do List
+      </p>
+
+      <div class="container">
+        <h1>Not Started</h1>
+
+        <div id="NotStarted">
+         <input type="text" placeholder="Write a Task.." />
+          <button id="push">Add</button>
+        </div>
+
+        <div id="tasks" ></div>
+      </div>
+
+
+
+      <div class="container2">
+        <h1>Completed</h1>
+
+        <div id="completed">
+            <input type="text" placeholder="Write a Task.." />
+
+          <button id="push2">Add</button>
+        </div>
+          <div id="tasks2" ></div>
+        </div>
+      </div>
+
+      Term Project by: Roua ALkadamani
+    </body>
+
+
+    <script>
+
+        // Click on a close button to hide the current list item
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+        }
+        }
+
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        input.appendChild(span);
+
+    </script>
+ 
+ <script>
+      document.querySelector("#push").onclick = function () {
+        if (document.querySelector("#NotStarted input").value.length == 0) {
+          alert("Please Enter a Task");
+        } else {
+          document.querySelector("#tasks").innerHTML += `
+            <div class="task">
+                <span id="taskname">
+                    ${document.querySelector("#NotStarted input").value}
+                </span>
+                <button class="delete">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </div>
+        `;
+
+          var current_tasks = document.querySelectorAll(".delete");
+          for (var i = 0; i < current_tasks.length; i++) {
+            current_tasks[i].onclick = function () {
+              this.parentNode.remove();
+            };
+          }
+        }
+      };
+    </script>
+
+    
+<script>
+    document.querySelector('#push2').onclick = function () {
+      if (document.querySelector("#completed input").value.length == 0) {
+        alert("Please Enter a Task");
+      } else {
+        document.querySelector("#tasks2").innerHTML += `
+          <div class="task2">
+              <span id="taskname">
+                  ${document.querySelector("#completed input").value}
+              </span>
+              <button class="delete">
+                  <i class="far fa-trash-alt"></i>
+              </button>
+          </div>
+      `;
+
+        var current_tasks = document.querySelectorAll(".delete");
+        for (var i = 0; i < current_tasks.length; i++) {
+          current_tasks[i].onclick = function () {
+            this.parentNode.remove();
+          };
+        }
+      }
+    };
+  </script>
+
+<script>
+  
+// Checks if we can use serviceWorker.
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+        .register("sw.js")
+        .then((registration) => {
+        
+            // The registration wass successful
+            console.log("Service worker registered");
+            console.log(registration);
+        })
+        .catch((err) => {
+        
+            // The registration failed
+            console.log("Sercvice worker registration failed");
+            console.error(err);
+        });
+}
+
+// Listens to an install event
+self.addEventListener("install", (event) => {
+    event.waitUntil(
+        // We try to open a cache named "assets". 
+        // If it does not exist, a new one will be created and named "assets"
+        caches.open("assets").then((cache) => {
+            // Add an array of path to files you want to add to cache
+            return cache.addAll([
+                "./",
+                "./css/index.css",
+                "./assets/logo192.png",
+                "./assets/logo512.png",
+            ]);
+        })
+    );
+});
+
+
+
+// Runs whenever there is a fetch request
+self.addEventListener("fetch", (event) => {
+    // Checks the cache to find matching request. 
+    // If there is a cached version of the request, it returns the cached version, otherwise it makes a new request.
+    event.respondWith(
+        caches.match(event.request).then((res) => {
+            return res || fetch(event.request);
+        })
+    );
+});
+
+
+</script>
+  </html>
+</html>
