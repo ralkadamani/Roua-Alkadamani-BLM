@@ -324,63 +324,11 @@
     };
   </script>
 
-  <script>
-        //work while offline
-        
-        // Checks if we can use serviceWorker.
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker
-                .register("sw.js")
-                .then((registration) => {
-                
-                    // The registration wass successful
-                    console.log("Service worker registered");
-                    console.log(registration);
-                })
-                .catch((err) => {
-                
-                    // The registration failed
-                    console.log("Sercvice worker registration failed");
-                    console.error(err);
-                });
-        }
-  </script>
+
 
   <script>
-        // Listens to an install event
-        self.addEventListener("install", (event) => {
-            event.waitUntil(
-                // We try to open a cache named "assets". 
-                // If it does not exist, a new one will be created and named "assets"
-                caches.open("assets").then((cache) => {
-                    // Add an array of path to files you want to add to cache
-                    return cache.addAll([
-                        "./",
-                        "./css/index.css",
-                        "./assets/logo192.png",
-                        "./assets/logo512.png",
-                    ]);
-                })
-            );
-        });
+    navigator.serviceWorker.register('serviceWorker.js')
 
-
-
-        // Runs whenever there is a fetch request
-        self.addEventListener("fetch", (event) => {
-            // Checks the cache to find matching request. 
-            // If there is a cached version of the request, it returns the cached version, otherwise it makes a new request.
-            event.respondWith(
-                caches.match(event.request).then((res) => {
-                    return res || fetch(event.request);
-                })
-            );
-        });
-
-
-  </script>
-
-  <script>
     if('serviceWorker' in navigator){
       navigator.serviceWorker.register('TermProject/serviceWorker.js')
         .then(reg => console.log('service worker registered'))

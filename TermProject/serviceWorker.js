@@ -1,7 +1,5 @@
-navigator.serviceWorker.register('serviceWorker.js')
-
 const CACHE ='JS'
-const FILES = ['/JS/', '/JS/sss/', '/JS/index.html', ...]
+const FILES = ['/JS/', '/JS/sss/', '/JS/Todolist.html']
 function installCB(e) {
   e.waitUntil(
     caches.open(CACHE)
