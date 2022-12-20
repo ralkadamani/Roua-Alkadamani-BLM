@@ -246,8 +246,8 @@
 
 
     <script>
-
-        // Click on a close button to hide the current list item
+        // Click on a close button to hide the current task item
+        
         var close = document.getElementsByClassName("close");
         var i;
         for (i = 0; i < close.length; i++) {
@@ -266,7 +266,8 @@
     </script>
  
  <script>
-      document.querySelector("#push").onclick = function () {
+      //container1
+        document.querySelector("#push").onclick = function () {
         if (document.querySelector("#NotStarted input").value.length == 0) {
           alert("Please Enter a Task");
         } else {
@@ -293,6 +294,7 @@
 
     
 <script>
+    //container2
     document.querySelector('#push2').onclick = function () {
       if (document.querySelector("#completed input").value.length == 0) {
         alert("Please Enter a Task");
@@ -318,57 +320,58 @@
     };
   </script>
 
-<script>
-  
-// Checks if we can use serviceWorker.
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker
-        .register("sw.js")
-        .then((registration) => {
+    <script>
+        //work while offline
         
-            // The registration wass successful
-            console.log("Service worker registered");
-            console.log(registration);
-        })
-        .catch((err) => {
-        
-            // The registration failed
-            console.log("Sercvice worker registration failed");
-            console.error(err);
+        // Checks if we can use serviceWorker.
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker
+                .register("sw.js")
+                .then((registration) => {
+                
+                    // The registration wass successful
+                    console.log("Service worker registered");
+                    console.log(registration);
+                })
+                .catch((err) => {
+                
+                    // The registration failed
+                    console.log("Sercvice worker registration failed");
+                    console.error(err);
+                });
+        }
+
+        // Listens to an install event
+        self.addEventListener("install", (event) => {
+            event.waitUntil(
+                // We try to open a cache named "assets". 
+                // If it does not exist, a new one will be created and named "assets"
+                caches.open("assets").then((cache) => {
+                    // Add an array of path to files you want to add to cache
+                    return cache.addAll([
+                        "./",
+                        "./css/index.css",
+                        "./assets/logo192.png",
+                        "./assets/logo512.png",
+                    ]);
+                })
+            );
         });
-}
-
-// Listens to an install event
-self.addEventListener("install", (event) => {
-    event.waitUntil(
-        // We try to open a cache named "assets". 
-        // If it does not exist, a new one will be created and named "assets"
-        caches.open("assets").then((cache) => {
-            // Add an array of path to files you want to add to cache
-            return cache.addAll([
-                "./",
-                "./css/index.css",
-                "./assets/logo192.png",
-                "./assets/logo512.png",
-            ]);
-        })
-    );
-});
 
 
 
-// Runs whenever there is a fetch request
-self.addEventListener("fetch", (event) => {
-    // Checks the cache to find matching request. 
-    // If there is a cached version of the request, it returns the cached version, otherwise it makes a new request.
-    event.respondWith(
-        caches.match(event.request).then((res) => {
-            return res || fetch(event.request);
-        })
-    );
-});
+        // Runs whenever there is a fetch request
+        self.addEventListener("fetch", (event) => {
+            // Checks the cache to find matching request. 
+            // If there is a cached version of the request, it returns the cached version, otherwise it makes a new request.
+            event.respondWith(
+                caches.match(event.request).then((res) => {
+                    return res || fetch(event.request);
+                })
+            );
+        });
 
 
-</script>
+    </script>
   </html>
 </html>
