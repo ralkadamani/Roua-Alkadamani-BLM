@@ -2,7 +2,7 @@
   <html lang="en">
     <head>
       <link rel="icon" href="images/JS.png">
-      <link rel="manifest" href="TermProject/manifest.json">
+      <link rel="manifest" href="manifest.json">
      
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -330,7 +330,7 @@
     navigator.serviceWorker.register('serviceWorker.js')
 
     if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('TermProject/serviceWorker.js')
+      navigator.serviceWorker.register('serviceWorker.js')
         .then(reg => console.log('service worker registered'))
         .catch(err => console.log('service worker not registered', err));
     }
