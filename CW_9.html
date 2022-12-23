@@ -141,22 +141,22 @@
         }
 
         flipHorizontal() {
-          let imageData = this.context.getImageData(0, 0, this.W, this.H);
-          let data = imageData.data;
-          let temp = [...data];
+          let imaged = this.context.getImageData(0, 0, this.W, this.H);
+          let data = imaged.data;
+          let co = [...data];
 
           var halfW = this.W / 2;
           for (let i = 0; i < data.length; i += 4) {
             let x = (i / 4) % this.W;
             let y = Math.floor(i / 4 / this.W);
             let j = (y * this.W + (this.W - x)) * 4;
-            data[i] = temp[j];
-            data[i + 1] = temp[j + 1];
-            data[i + 2] = temp[j + 2];
-            data[i + 3] = temp[j + 3];
+            data[i] = co[j];
+            data[i + 1] = co[j + 1];
+            data[i + 2] = co[j + 2];
+            data[i + 3] = co[j + 3];
           }
 
-          this.context.putImageData(imageData, 0, 0);
+          this.context.putImageData(imaged, 0, 0);
         }
       }
 
