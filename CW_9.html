@@ -41,7 +41,6 @@
     </div>
     <div>
       <div id="sss">
-        
         <dialog id="invokeDialog">
           <form method="dialog">
             <p>
@@ -142,27 +141,27 @@
         }
 
         flipHorizontal() {
-          console.log(counter);
-          cx.translate(img.width, 0);
-          cx.scale(-1, 1);
-          cx.drawImage(img, 0, 0);
-          counter++;
-          if (counter == 2) {
-            cx.translate(img.width, img.height);
-            cx.scale(-1, 1);
-            cx.drawImage(img, 0, 0);
+          let imageData = this.context.getImageData(0, 0, this.W, this.H);
+          let data = imageData.data;
+          let temp = [...data];
 
-            counter = 0;
+          var halfW = this.W / 2;
+          for (let i = 0; i < data.length; i += 4) {
+            let x = (i / 4) % this.W;
+            let y = Math.floor(i / 4 / this.W);
+            let j = (y * this.W + (this.W - x)) * 4;
+            data[i] = temp[j];
+            data[i + 1] = temp[j + 1];
+            data[i + 2] = temp[j + 2];
+            data[i + 3] = temp[j + 3];
           }
+
+          this.context.putImageData(imageData, 0, 0);
         }
-        getPixelAt(x, y) {
-          return this.context.getImageData(x, y, 1, 1).data;
-        }
-        
       }
 
       function init() {
-        MENU = new Graph(); 
+        MENU = new Graph();
         display(MENU);
         display(cx);
         display(img);
