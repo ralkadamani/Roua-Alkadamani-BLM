@@ -1,5 +1,5 @@
 const CACHE ='AP22'
-const FILES = ['TermProject\Todolist.html', 'TermProject\manifest.json']
+const FILES = ['./Todolist.html', './manifest.json']
 function installCB(e) {
   e.waitUntil(
     caches.open(CACHE)
