@@ -1,6 +1,6 @@
 {
     "name": "JavaScript samples",
-    "start_url": "./Roua-Alkadamani-BLM/TermProject/Todolist.html",
+    "start_url": "./Todolist.html",
     "display": "standalone",
     "background_color": "cyan",
     "icons": [
