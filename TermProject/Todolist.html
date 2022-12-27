@@ -331,42 +331,38 @@
   </script>
 
 <script>
-  window.onload = function() {
-    localStorage.setItem("name", $('data').val());
+  let j = 0
+  document.getElementById('push').addEventListener('click', function () {
+    var title = 'note' + j++
+
+    // add to local storage
+    var items = readLocalStorage()
+    if (!items) items = []
+    items.push({ title: title })
+    localStorage.setItem('items', JSON.stringify(items))
+    init()
+  })
+
+  function readLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('items'))
+    return data
   }
+
+  function init() {
+    var items = readLocalStorage()
+    if (!items) return
+
+    document.getElementById('items').innerHTML = ''
+
+    items.forEach(function (item) {
+      var button = document.createElement('button')
+      button.innerHTML = item.title
+      document.getElementById('items').appendChild(button)
+    })
+}
+
+init()
 </script>
-
-<script>
-  var name = localStorage.getItem('name');
-  console.log(name); //  To print the value of localStorage variable name
-</script>
-
-<script>
-  //local storage
-  /*var input = document.getElementById("tasks");
-  localStorage.setItem("data", input.val());
-  window.localStorage.getItem("data");*/
-</script>
-
-<script>
- /* var input = document.getElementById("myinput");
-  input.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      document.getElementById("push").click();
-    }
-  });
-
-
-  var input2 = document.getElementById("myinput2");
-  input2.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      document.getElementById("push2").click();
-    }
-  });
-*/
-  </script>
 
   <script>
     navigator.serviceWorker.register('./sw.js')
