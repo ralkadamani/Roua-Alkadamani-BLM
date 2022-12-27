@@ -230,7 +230,7 @@
         <h1>Not Started</h1>
 
         <div id="NotStarted">
-         <input id="myinput" type="text" placeholder="Write a Task.." />
+         <input id="myinput" name="data" type="text" placeholder="Write a Task.." />
           <button id="push">Add</button>
         </div>
 
@@ -243,7 +243,7 @@
         <h1>Completed</h1>
 
         <div id="completed">
-            <input id="myinput2" type="text" placeholder="Write a Task.." />
+            <input id="myinput" name="data" type="text" placeholder="Write a Task.." />
 
           <button id="push2">Add</button>
         </div>
@@ -329,6 +329,11 @@
       }
     };
   </script>
+
+<script>
+  var input = document.getElementById("myinput");
+localStorage.setItem("data", input.val());
+</script>
 
 <script>
   var input = document.getElementById("myinput");
