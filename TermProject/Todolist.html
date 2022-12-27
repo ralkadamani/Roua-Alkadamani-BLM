@@ -1,8 +1,8 @@
 <html>
   <html lang="en">
     <head>
-      <link rel="icon" href="./photo.png">
-      <link rel="manifest" href="./manifest.json">
+      <link rel="icon" href="./photo.png" />
+      <link rel="manifest" href="./manifest.json" />
 
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +12,7 @@
           max-width: 400px;
           background-color: rgb(97, 148, 140);
         }
-        
+
         /* Style the list items */
         ul li {
           cursor: pointer;
@@ -261,16 +261,10 @@
         // Call the loadList function when the page finishes loading
         window.onload = loadList;
       </script>
-      
-  <script>
-    navigator.serviceWorker.register('./sw.js')
-    
 
-  /*  if('sw' in navigator){
-      navigator.serviceWorker.register('./sw.js')
-        .then(reg => console.log('service worker registered'))
-        .catch(err => console.log('service worker not registered', err));
-    }*/
-  </script>
+      <script>
+        navigator.serviceWorker.register("./sw.js");
+      </script>
+    </body>
   </html>
 </html>
