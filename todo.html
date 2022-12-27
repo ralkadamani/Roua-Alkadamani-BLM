@@ -227,16 +227,22 @@
       </p>
 
       <div class="container">
-        <h1>Not Started</h1>
-
-        <div id="NotStarted">
-        <form>
-         <input id="myinput" name="data" type="text" placeholder="Write a Task.." />
-         <button id="push">Add</button>
-        </form> 
-        </div>
-
-        <div id="tasks" ></div>
+        <header>
+            <h1>Not Started</h1>
+          <form action="" id="NotStarted">
+            <input
+              type="text"
+              id="task-input"
+              placeholder="Write a Task.."
+            />
+            <input type="submit"  id="push" value="Add" />
+          </form>
+        </header>
+        <main>
+          <section class="task-list">
+            <div id="tasks"></div>
+          </section>
+        </main>
       </div>
 
 
@@ -336,7 +342,7 @@
   //local storage
   var input = document.getElementById("myinput");
   localStorage.setItem("data", input.val());
-  var storedValue = window.localStorage.getItem("data");
+  var storedValue = localStorage.getItem("data");
 </script>
 
 <script>
@@ -363,11 +369,6 @@
     navigator.serviceWorker.register('./sw.js')
     
 
-  /*  if('sw' in navigator){
-      navigator.serviceWorker.register('./sw.js')
-        .then(reg => console.log('service worker registered'))
-        .catch(err => console.log('service worker not registered', err));
-    }*/
   </script>
   </html>
 </html>
