@@ -230,7 +230,7 @@
         <h1>Not Started</h1>
 
         <div id="NotStarted">
-         <input type="text" placeholder="Write a Task.." />
+         <input id="myinput" type="text" placeholder="Write a Task.." />
           <button id="push">Add</button>
         </div>
 
@@ -243,7 +243,7 @@
         <h1>Completed</h1>
 
         <div id="completed">
-            <input type="text" placeholder="Write a Task.." />
+            <input id="myinput2" type="text" placeholder="Write a Task.." />
 
           <button id="push2">Add</button>
         </div>
@@ -331,13 +331,23 @@
   </script>
 
 <script>
-  var input = document.getElementById("myInput");
+  var input = document.getElementById("myinput");
   input.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
       event.preventDefault();
-      document.getElementById("myBtn").click();
+      document.getElementById("push").click();
     }
   });
+
+
+  var input2 = document.getElementById("myinput2");
+  input2.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("push2").click();
+    }
+  });
+
   </script>
 
   <script>
