@@ -331,37 +331,41 @@
   </script>
 
 <script>
-  let j = 0
-  document.getElementById('push').addEventListener('click', function () {
-    var title = 'note' + j++
+  const form = document.querySelector('#NotStarted');
 
-    // add to local storage
-    var items = readLocalStorage()
-    if (!items) items = []
-    items.push({ title: title })
-    localStorage.setItem('items', JSON.stringify(items))
-    init()
-  })
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // prevent the form from being submitted to the server
 
-  function readLocalStorage() {
-    const data = JSON.parse(localStorage.getItem('items'))
-    return data
+    // get the value of the input field
+    const task = e.target.elements.task.value;
+
+    // add the task to the list of tasks
+    const tasks = [...document.querySelectorAll('.task span')].map((el) => el.textContent);
+    tasks.push(task);
+
+    // serialize the list of tasks to a string
+    const tasksString = JSON.stringify(tasks);
+
+    // save the serialized list of tasks to local storage
+    localStorage.setItem('tasks', tasksString);
+  });
+
+  // get the serialized list of tasks from local storage
+  const tasksString = localStorage.getItem('tasks');
+
+  // check if there are any tasks in local storage
+  if (tasksString) {
+    // deserialize the list of tasks
+    const tasks = JSON.parse(tasksString);
+
+    // add the tasks to the page
+    tasks.forEach((task) => {
+      const taskElement = document.createElement('div');
+      taskElement.classList.add('task');
+      taskElement.innerHTML = `<span>${task}</span><button>X</button>`;
+      document.querySelector('#tasks').appendChild(taskElement);
+    });
   }
-
-  function init() {
-    var items = readLocalStorage()
-    if (!items) return
-
-    document.getElementById('items').innerHTML = ''
-
-    items.forEach(function (item) {
-      var task = document.createElement('task')
-      task.innerHTML = item.title
-      document.getElementById('items').appendChild(task)
-    })
-}
-
-init()
 </script>
 
   <script>
