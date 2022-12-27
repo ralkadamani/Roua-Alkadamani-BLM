@@ -231,7 +231,7 @@
 
         <div id="NotStarted">
          <input id="myinput" name="data" type="text" placeholder="Write a Task.." />
-         <button id="push" onclick="return display();">Add</button>
+         <button id="push" name="data">Add</button>
         </div>
 
         <div id="tasks" ></div>
@@ -245,7 +245,7 @@
         <div id="completed">
             <input id="myinput"  type="text" placeholder="Write a Task.." />
 
-          <button id="push2" onclick="return display();">Add</button>
+          <button id="push2"  name="data">Add</button>
         </div>
           <div id="tasks2"  ></div>
         </div>
@@ -331,51 +331,14 @@
   </script>
 
 <script>
-  // get the value from the cookie
-  var post = getCookie("userInput");
-
-  // check a value has been stored
-  if (post !== '') {
-      // if it has update the "p" tag
-      document.getElementById("printhere").innerHTML = post;
+  window.onload = function() {
+    localStorage.setItem("name", $('data').val());
   }
+</script>
 
-  function display() {
-    var post = document.getElementById("userInput").value;
-      document.getElementById("printhere").innerHTML = post;
-
-      // store the input in a cookie
-      setCookie("userInput", post, 1);
-
-      // if you don't want the page to refresh after the button is pressed then
-      // have this function return false.  Also make sure you have "return" in
-      // the onclick attribute of the button
-      //return false;
-  }
-
-  function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
-
-  function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-
+<script>
+  var name = localStorage.getItem('name');
+  console.log(name); //  To print the value of localStorage variable name
 </script>
 
 <script>
