@@ -355,9 +355,9 @@
     document.getElementById('items').innerHTML = ''
 
     items.forEach(function (item) {
-      var button = document.createElement('button')
-      button.innerHTML = item.title
-      document.getElementById('items').appendChild(button)
+      var task = document.createElement('task')
+      task.innerHTML = item.title
+      document.getElementById('items').appendChild(task)
     })
 }
 
