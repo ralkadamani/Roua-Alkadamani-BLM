@@ -243,11 +243,11 @@
         <h1>Completed</h1>
 
         <div id="completed">
-            <input id="myinput" name="data" type="text" placeholder="Write a Task.." />
+            <input id="myinput"  type="text" placeholder="Write a Task.." />
 
-          <button id="push2">Add</button>
+          <button id="push2" name="data">Add</button>
         </div>
-          <div id="tasks2" ></div>
+          <div id="tasks2"  ></div>
         </div>
       </div>
 
@@ -332,7 +332,7 @@
 
 <script>
   //local storage
-  var input = document.getElementById("myinput");
+  var input = document.getElementById("tasks");
   localStorage.setItem("data", input.val());
   var storedValue = window.localStorage.getItem("data");
 </script>
