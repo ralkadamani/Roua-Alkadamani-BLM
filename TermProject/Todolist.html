@@ -13,18 +13,35 @@
           background-color: rgb(97, 148, 140);
         }
 
+
+        /* Style the list items */
+        ul li {
+          cursor: pointer;
+          position: relative;
+          padding: 10px 10px;
+          list-style-type: none;
+          background: rgb(216, 224, 225);
+          font-size: 18px;
+          display: grid;
+          border-radius: 5px;
+          text-align: center;
+          justify-content: center;
+        }
+
+        /* Style the close button */
         .close {
-            position: absolute;
-            right: 0;
-            top: 0;
-            padding: 12px 16px 12px 16px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          padding: 12px 16px 12px 16px;
         }
 
         .close:hover {
-            background-color: #f44336;
-            color: white;
+          background-color: #f44336;
+          color: white;
         }
-          
+
+        /* Style the header */
         h1 {
           width: auto;
           height: 40px;
@@ -33,35 +50,33 @@
           border-radius: 5px;
           color: white;
         }
-
-        *,
-        *:before,
-        *:after {
-          padding: 0;
-          margin: 0;
-          box-sizing: border-box;
-        }
-       
-        .container {
+        .header {
           width: 50%;
           margin-left: 50%;
-          margin-top: 50%;
+          margin-top: 60%;
           background-color: rgb(216, 224, 225);
           border-radius: 10px;
           min-width: 300px;
           transform: translate(-50%, -50%);
         }
-        
-        #NotStarted {
-          position: relative;
-          padding: 10px 10px;
-          display: grid;
-          border-radius: 5px;
-          text-align: center;
-          justify-content: center;
+        .COMPheader {
+          width: 50%;
+          margin-left: 50%;
+          background-color: rgb(216, 224, 225);
+          border-radius: 10px;
+          min-width: 300px;
+          transform: translate(-50%, -50%);
         }
 
-        #NotStarted input {
+        /* Clear floats after the header */
+        .header:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        /* Style the input */
+        input {
           width: 100%;
           height: 10px;
           padding: 30px;
@@ -74,300 +89,180 @@
           border: 2px solid #d1d3d4;
         }
 
-        #NotStarted input:focus {
-          outline: none;
-          border-color: #ec0d0d;
-        }
-
-        #NotStarted button {
+        /* Style the "Add" button */
+        .addBtn {
+          background: rgb(158, 187, 209);
+          color: #000000;
           box-sizing: border-box;
           border-radius: 5px;
-          background: rgb(158, 187, 209);
-          cursor: pointer;
           padding: 5px 10px;
-          border: 0;
-          font-weight: 500;
-          font-size: 15px;
-          color: #000000;
-        }
-
-        #tasks {
-          border-radius: 10px;
           width: 100%;
-          position: relative;
-          background-color: rgb(216, 224, 225);
-          padding: 5px 10px;
-        }
-
-        .task  {
-          border-radius: 5px;
-          align-items: center;
-          justify-content: space-between;
-          border: 1px solid #939697;
-          cursor: pointer;
-          background-color: rgb(255, 255, 255);
-          height: 30px;
-          padding: 5px 10px;
-          display: flex;
-        }
-
-        .task span {
-          font-family: "Poppins", sans-serif;
-          font-size: 20px;
-          font-weight: 200;
-        }
-
-        .task button {
-          background-color: #a40a0a;
-          color: #ffffff;
-          border: none;
-          cursor: pointer;
-          outline: none;
-          height: 100%;
-          width: 40px;
-          border-radius: 5px;
-        }
-
-        .container2 {
-          width: 50%;
-          margin-left: 50%;
-          margin-top: 40%;
-          background-color: rgb(216, 224, 225);
-          border-radius: 10px;
-          min-width: 300px;
-          transform: translate(-50%, -50%);
-        }
-
-        #completed {
-          position: relative;
-          padding: 10px 10px;
-          display: grid;
-          border-radius: 5px;
+          font-weight: 500;
+          font-size: 17.5px;
+          float: left;
           text-align: center;
-          justify-content: center;
-        }
-        
-        #completed input {
-          width: 100%;
-          height: 20px;
-          padding: 30px;
-          color: #111111;
-          font-weight: 500;
-          position: relative;
-          border-radius: 5px;
-          font-family: "Poppins", sans-serif;
-          font-size: 20px;
-          border: 2px solid #d1d3d4;
         }
 
-        #completed input:focus {
-          outline: none;
-          border-color: #ec0d0d;
-        }
-        
-        #completed button {
-          box-sizing: border-box;
-          border-radius: 5px;
-          background: rgb(158, 187, 209);
-          cursor: pointer;
-          padding: 5px 10px;
-          border: 0;
-          font-weight: 500;
-          font-size: 15px;
-          color: #000000;
+        .addBtn:hover {
+          background-color: #bbb;
         }
 
-        #tasks2 {
-          border-radius: 10px;
-          width: 100%;
-          position: relative;
-          background-color: rgb(216, 224, 225);
-          padding: 5px 10px;
-
+        /*DELETE IT*/
+        /* When clicked on, add a background color and strike out text */
+        ul li.checked {
+          color: rgb(118, 134, 174);
+          text-decoration: line-through;
         }
-
-        .task2  {
-          border-radius: 5px;
-          align-items: center;
-          justify-content: space-between;
-          border: 1px solid #939697;
-          cursor: pointer;
-          background-color: rgb(255, 255, 255);
-          height: 30px;
-          padding: 5px 10px;
-          display: flex;
-        }
-
-        .task2 span {
-          font-family: "Poppins", sans-serif;
-          font-size: 20px;
-          font-weight: 200;
-        }
-
-        .task2 button {
-          background-color: #a40a0a;
-          color: #ffffff;
-          border: none;
-          cursor: pointer;
-          outline: none;
-          height: 100%;
-          width: 40px;
-          border-radius: 5px;
-        }
-
-
+        /* Add a "checked" mark when clicked on */
+        ul li.checked::before {
+          content: "";
+          position: absolute;
+          border-color: rgb(118, 134, 174);
+          border-style: solid;
+          border-width: 0 2px 2px 0;
+          top: 10px;
+          left: 16px;
+          transform: rotate(45deg);
+          height: 15px;
+          width: 7px;
+        } /**/
       </style>
     </head>
-
     <body>
-
-      <p style="font-size: 50px; margin-block-start:5px; text-align: center; 
-                color: white; background-color: rgb(97, 148, 140); ">
+      <p
+        style="
+          font-size: 50px;
+          margin-block-start: 5px;
+          text-align: center;
+          color: white;
+          background-color: rgb(97, 148, 140);
+        "
+      >
         To Do List
       </p>
 
-      <div class="container">
+      <div id="myDIV" class="header">
         <h1>Not Started</h1>
+        <input type="text" id="myInput" placeholder="Title..." />
+        <!--<span onclick="newElement()" id="add" class="addBtn">Add</span>-->
+        <button onclick="newElement()" id="add" class="addBtn">Add</button>
 
-        <div id="NotStarted">
-         <input id="myinput"  type="text" placeholder="Write a Task.." />
-         <button id="push" >Add</button>
-        </div>
-
-        <div id="tasks"  name="data" ></div>
+        <ul id="list">
+          <li>Hit the gym</li>
+          <li class="checked">Pay bills</li>
+          <li>Read a book</li>
+          <li>Organize office</li>
+        </ul>
       </div>
 
-
-
-      <div class="container2">
+      <div id="comp" class="COMPheader">
         <h1>Completed</h1>
 
-        <div id="completed">
-            <input id="myinput"  type="text" placeholder="Write a Task.." />
-
-          <button id="push2" >Add</button>
-        </div>
-          <div id="tasks2"  name="data" ></div>
-        </div>
+        <ul id="myCompUL">
+          <li class="checked">Pay bills</li>
+          <li class="checked">Hit the gym</li>
+        </ul>
       </div>
 
-      Term Project by: Roua ALkadamani
-    </body>
+      <script>
+        // Create a "close" button and append it to each list item
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+          var span = document.createElement("SPAN");
+          var txt = document.createTextNode("\u00D7");
+          span.className = "close";
+          span.appendChild(txt);
+          myNodelist[i].appendChild(span);
+        }
 
-
-    <script>
-        // Click on a close button to hide the current task item
-        
+        // Click on a close button to hide the current list item
         var close = document.getElementsByClassName("close");
         var i;
         for (i = 0; i < close.length; i++) {
-        close[i].onclick = function() {
+          close[i].onclick = function () {
             var div = this.parentElement;
             div.style.display = "none";
+          };
         }
-        }
 
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        
+        // Add a "checked" symbol when clicking on a list item
+        var list = document.querySelector("ul");
+        list.addEventListener(
+          "click",
+          function (ev) {
+            if (ev.target.tagName === "LI") {
+              ev.target.classList.toggle("checked");
+            }
+          },
+          false
+        );
 
-    </script>
- 
- <script>
-      //container1
-        document.querySelector("#push").onclick = function () {
-        if (document.querySelector("#NotStarted input").value.length == 0) {
-          alert("Please Enter a Task");
-        } else {
-          document.querySelector("#tasks").innerHTML += `
-            <div class="task">
-                <span id="taskname">
-                    ${document.querySelector("#NotStarted input").value}
-                </span>
-                <button class="delete">
-                    <i class="far fa-trash-alt"></i>
-                </button>
-            </div>
-        `;
+        // Create a new list item when clicking on the "Add" button
+        function newElement() {
+          var li = document.createElement("li");
+          var inputValue = document.getElementById("myInput").value;
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          if (inputValue === "") {
+            alert("You must write something!");
+          } else {
+            document.getElementById("myUL").appendChild(li);
+          }
+          document.getElementById("myInput").value = "";
 
-          var current_tasks = document.querySelectorAll(".delete");
-          for (var i = 0; i < current_tasks.length; i++) {
-            current_tasks[i].onclick = function () {
-              this.parentNode.remove();
+          var span = document.createElement("SPAN");
+          var txt = document.createTextNode("\u00D7");
+          span.className = "close";
+          span.appendChild(txt);
+          li.appendChild(span);
+
+          for (i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+              var div = this.parentElement;
+              div.style.display = "none";
             };
           }
         }
-      };
-    </script>
+      </script>
 
-    
-  <script>
-    //container2
-    document.querySelector('#push2').onclick = function () {
-      if (document.querySelector("#completed input").value.length == 0) {
-        alert("Please Enter a Task");
-      } else {
-        document.querySelector("#tasks2").innerHTML += `
-          <div class="task2">
-              <span id="taskname">
-                  ${document.querySelector("#completed input").value}
-              </span>
-              <button class="delete">
-                  <i class="far fa-trash-alt"></i>
-              </button>
-          </div>
-      `;
+      <script>
+        // Save the list to local storage
+        function saveList() {
+          // Get the list from the DOM
+          const list = document.getElementById("list");
 
-        var current_tasks = document.querySelectorAll(".delete");
-        for (var i = 0; i < current_tasks.length; i++) {
-          current_tasks[i].onclick = function () {
-            this.parentNode.remove();
-          };
+          // Convert the list to a string
+          const listString = list.innerHTML;
+
+          // Save the string to local storage
+          localStorage.setItem("list", listString);
         }
-      }
-    };
-  </script>
+        // Add an event listener to the "Add" button
+        document.getElementById("add").addEventListener("click", saveList);
 
-<script>
-  const form = document.querySelector('#NotStarted');
+        // Load the list from local storage
+        function loadList() {
+          // Get the list string from local storage
+          const listString = localStorage.getItem("list");
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault(); // prevent the form from being submitted to the server
+          // Check if the list string exists in local storage
+          if (listString) {
+            // Get the list element
+            const list = document.getElementById("list");
 
-    // get the value of the input field
-    const task = e.target.elements.task.value;
+            // Set the list's innerHTML to the list string from local storage
+            list.innerHTML = listString;
+          }
+        }
 
-    // add the task to the list of tasks
-    const tasks = [...document.querySelectorAll('.task span')].map((el) => el.textContent);
-    tasks.push(task);
-
-    // serialize the list of tasks to a string
-    const tasksString = JSON.stringify(tasks);
-
-    // save the serialized list of tasks to local storage
-    localStorage.setItem('tasks', tasksString);
-  });
-
-  // get the serialized list of tasks from local storage
-  const tasksString = localStorage.getItem('tasks');
-
-  // check if there are any tasks in local storage
-  if (tasksString) {
-    // deserialize the list of tasks
-    const tasks = JSON.parse(tasksString);
-
-    // add the tasks to the page
-    tasks.forEach((task) => {
-      const taskElement = document.createElement('div');
-      taskElement.classList.add('task');
-      taskElement.innerHTML = `<span>${task}</span><button>X</button>`;
-      document.querySelector('#tasks').appendChild(taskElement);
-    });
-  }
-</script>
-
+        // Add event listeners to the save and load buttons
+        document.getElementById("save").addEventListener("click", saveList);
+        document.getElementById("load").addEventListener("click", loadList);
+        // Call the loadList function when the page finishes loading
+        window.onload = loadList;
+      </script>
+      
   <script>
     navigator.serviceWorker.register('./sw.js')
     
