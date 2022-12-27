@@ -231,7 +231,7 @@
 
         <div id="NotStarted">
          <input id="myinput" name="data" type="text" placeholder="Write a Task.." />
-         <button id="push">Add</button>
+         <button id="push" onclick="return display();">Add</button>
         </div>
 
         <div id="tasks" ></div>
@@ -245,7 +245,7 @@
         <div id="completed">
             <input id="myinput"  type="text" placeholder="Write a Task.." />
 
-          <button id="push2" name="data">Add</button>
+          <button id="push2" onclick="return display();">Add</button>
         </div>
           <div id="tasks2"  ></div>
         </div>
@@ -332,9 +332,9 @@
 
 <script>
   //local storage
-  var input = document.getElementById("tasks");
+  /*var input = document.getElementById("tasks");
   localStorage.setItem("data", input.val());
-  window.localStorage.getItem("data");
+  window.localStorage.getItem("data");*/
 </script>
 
 <script>
