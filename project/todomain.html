@@ -145,13 +145,14 @@
         <input type="text" id="myInput" placeholder="Title...">
         
         <span onclick="newElement()" id="add" class="addBtn">Add</span>
-        
+
         <ul id="list">
           <li>Hit the gym</li>
           <li class="checked">Pay bills</li>
           <li>Read a book</li>
           <li>Organize office</li>
         </ul>
+
       </div>
 
       <div id="comp" class="COMPheader">
@@ -225,42 +226,7 @@
         }
       </script>
 
-      <script>
-        // Save the list to local storage
-        function saveList() {
-          // Get the list from the DOM
-          const list = document.getElementById("list");
-
-          // Convert the list to a string
-          const listString = list.innerHTML;
-
-          // Save the string to local storage
-          localStorage.setItem("list", listString);
-        }
-        // Add an event listener to the "Add" button
-        document.getElementById("add").addEventListener("click", saveList);
-
-        // Load the list from local storage
-        function loadList() {
-          // Get the list string from local storage
-          const listString = localStorage.getItem("list");
-
-          // Check if the list string exists in local storage
-          if (listString) {
-            // Get the list element
-            const list = document.getElementById("list");
-
-            // Set the list's innerHTML to the list string from local storage
-            list.innerHTML = listString;
-          }
-        }
-
-        // Add event listeners to the save and load buttons
-        //document.getElementById("save").addEventListener("click", saveList);
-        document.getElementById("load").addEventListener("click", loadList);
-        // Call the loadList function when the page finishes loading
-        window.onload = loadList;
-      </script>
+      
       <script>
         navigator.serviceWorker.register("./sw.js");
       </script>
