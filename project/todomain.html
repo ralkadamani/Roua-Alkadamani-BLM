@@ -1,4 +1,4 @@
-<!--<html>
+<html>
   <html lang="en">
     <head>
       <link rel="icon" href="./photo.png" />
@@ -12,7 +12,6 @@
           max-width: 400px;
           background-color: rgb(97, 148, 140);
         }
-
 
         /* Style the list items */
         ul li {
@@ -143,9 +142,9 @@
 
       <div id="myDIV" class="header">
         <h1>Not Started</h1>
-        <input type="text" id="myInput" placeholder="Title..." />-->
-        <!--<span onclick="newElement()" id="add" class="addBtn">Add</span>-->
-        <!--<button onclick="newElement()" id="add" class="addBtn">Add</button>
+        <input type="text" id="myInput" placeholder="Title..." />
+        
+        <button onclick="newElement()" id="add" class="addBtn">Add</button>
 
         <ul id="list">
           <li>Hit the gym</li>
@@ -262,6 +261,9 @@
         // Call the loadList function when the page finishes loading
         window.onload = loadList;
       </script>
+      <script>
+        navigator.serviceWorker.register("./sw.js");
+      </script>
     </body>
   </html>
-</html> -->
+</html>
