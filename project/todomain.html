@@ -198,7 +198,19 @@
           },
           false
         );
-
+        function newElement() {
+          
+          li.appendChild(t);
+          document.getElementById("list").appendChild(li);
+          document.getElementById("myInput").value = "";
+          for (i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+              var div = this.parentElement;
+              div.style.display = "none";
+            };
+          }
+        }
+        
         // Create a new list item when clicking on the "Add" button
         function newElement() {
           var li = document.createElement("li");
