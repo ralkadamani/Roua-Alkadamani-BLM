@@ -201,7 +201,7 @@
         function newElement() {
           
           li.appendChild(t);
-          document.getElementById("list").appendChild(li);
+          document.getElementById("comp").appendChild(li);
           document.getElementById("myInput").value = "";
           for (i = 0; i < close.length; i++) {
             close[i].onclick = function () {
@@ -210,7 +210,7 @@
             };
           }
         }
-        
+
         // Create a new list item when clicking on the "Add" button
         function newElement() {
           var li = document.createElement("li");
