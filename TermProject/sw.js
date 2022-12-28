@@ -1,4 +1,4 @@
-const CACHE ='AP22'
+/*const CACHE ='AP22'
 const FILES = ['./Todolist.html', './manifest.json']
 function installCB(e) {
   e.waitUntil(
@@ -36,4 +36,4 @@ function cacheCB(e) { //cache first
       .catch(() => { return caches.match(req).then(r1 => r1) })
     )
   }
-  self.addEventListener('fetch', fetchCB)
+  self.addEventListener('fetch', fetchCB)*/
