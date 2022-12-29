@@ -31,7 +31,6 @@
           justify-content: center;
         }
 
-        /*DELETE IT*/
         /* When clicked on, add a background color and strike out text */
         ul li.checked {
           color: rgb(118, 134, 174);
@@ -49,7 +48,7 @@
           transform: rotate(45deg);
           height: 15px;
           width: 7px;
-        } /**/
+        }
 
         /*close button */
         .close {
@@ -146,14 +145,13 @@
       <div id="myDIV" class="header">
         <h1>Not Started</h1>
         <input type="text" id="myInput" placeholder="Write a task.." />
-        <!--<button onclick="newElement()" class="addBtn">Add</button>-->
         <span onclick="newElement()" id="add" class="addBtn">Add</span>
+        <button id="load">reload list</button>
+        <button id="delete">clear storage</button>
 
         <ul id="list">
-          <li>Hit the gym</li>
           <li class="checked">Pay bills</li>
           <li>Read a book</li>
-          <li>Organize office</li>
         </ul>
       </div>
 
@@ -190,7 +188,8 @@
 
         // Add a "checked" symbol when clicking on a list item
         var list = document.querySelector("ul");
-        list.addEventListener("click",
+        list.addEventListener(
+          "click",
           function (ev) {
             if (ev.target.tagName === "LI") {
               ev.target.classList.toggle("checked");
@@ -198,18 +197,6 @@
           },
           false
         );
-     /*   function newElement() {
-          
-          li.appendChild(t);
-          document.getElementById("comp").appendChild(li);
-          document.getElementById("myInput").value = "";
-          for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-              var div = this.parentElement;
-              div.style.display = "none";
-            };
-          }
-        }*/
 
         // Create a new list item when clicking on the "Add" button
         function newElement() {
@@ -267,12 +254,14 @@
             list.innerHTML = listString;
           }
         }
+        function clear() {
+          localStorage.clear();
+        }
 
         // Add event listeners to the save and load buttons
-        document.getElementById("myInput").addEventListener("click", saveList);
-        document.getElementById("list").addEventListener("click", loadList);
-        // Call the loadList function when the page finishes loading
-        // window.onload = loadList;
+        document.getElementById("add").addEventListener("click", saveList);
+        document.getElementById("load").addEventListener("click", loadList);
+        document.getElementById("delete").addEventListener("click",clear);
       </script>
       <script>
         navigator.serviceWorker.register("./sw.js");
